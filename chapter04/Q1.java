@@ -14,6 +14,8 @@ public class Q1 {
             System.out.println(num1 * num2);
         } else if (operator == '/') {
             System.out.println(num1 / num2);
+        } else {
+            System.out.println("연산자 오류");
         }
     }
 }
