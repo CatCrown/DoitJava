@@ -4,11 +4,11 @@ public class Transportation {
     public static int transNo = 1000;
     public short fuel = 100 ;
     public int speed = 0;
-    public int passenger = 0;
+    public int passenger = 0; //현재 탑승한 전체 승객
+    public int board_passenger = 0; // 탑승하고자 하는 승객
     static int MAX_PASSENGER;
     public String state;
-    public int cost; // 요금
-    public int profit; // 대중교통 총 수익
+
 
     public Transportation() {
         transNo++;
@@ -24,20 +24,20 @@ public class Transportation {
         }
     }
 
-    public int getCost() {
-        return cost;
+    public short getFuel() {
+        return fuel;
     }
 
-    public void setCost(int cost) {
-        this.cost = cost;
+    public void setFuel(short fuel) {
+        this.fuel = fuel;
     }
 
-    public int getProfit() {
-        return profit;
+    public int getBoard_passenger() {
+        return board_passenger;
     }
 
-    public void setProfit(int profit) {
-        this.profit = profit;
+    public void setBoard_passenger(int board_passenger) {
+        this.board_passenger = board_passenger;
     }
 
     public String getState() {
@@ -61,8 +61,6 @@ public class Transportation {
         if (this.fuel < 10) {
             System.out.println("주유 필요합니다.");
         }
-
-
     }
     
     public void changeSpeed(int speed){
@@ -86,17 +84,16 @@ public class Transportation {
         }
     }
     
-    public void boarding(int passenger){
-        if (this.state.equals("운행") && this.passenger + passenger <= MAX_PASSENGER){
-            this.passenger += passenger;
-            profit = this.cost * passenger;
-            System.out.println("탑승 승객 수 = " + passenger);
+    public void boarding(int board_passenger){
+        if (this.state.equals("운행") && this.passenger + board_passenger <= MAX_PASSENGER){
+            this.board_passenger = board_passenger;
+            this.passenger += board_passenger;
+            System.out.println("탑승 승객 수 = " + board_passenger);
             System.out.println("잔여 승객 수 = " + (MAX_PASSENGER - this.passenger));
-            System.out.println("요금 확인 = " + profit);
         } else if (this.state.equals("차고지행")) {
             this.passenger = 0;
             System.out.println("운행 중지 하였습니다. 승객들이 모두 차에서 내렸습니다. ");
-        } else if (this.passenger + passenger > MAX_PASSENGER){
+        } else if (this.passenger + board_passenger > MAX_PASSENGER){
             System.out.println(MAX_PASSENGER + "명까지 탈 수 있습니다. 더 이상 탑승이 어렵습니다. ");
         }
 
