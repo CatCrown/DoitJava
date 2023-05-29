@@ -26,8 +26,19 @@ public class Main {
 
 
         taxi1.changeFuel((short) 100);
-        System.out.println("상탱: " + taxi1.getState());
+        System.out.println("상태: " + taxi1.getState());
         taxi1.boarding(2);
-        taxi1.taxi_cost();
+        taxi1.taxi_cost("서울역",2);
+        System.out.println("상태: " + taxi1.getState());
+        taxi1.changeFuel((short) -80);
+        System.out.println("누적 요금 = " + taxi1.total_profit);
+
+        taxi1.boarding(5);
+        taxi1.taxi_cost("구로디지털단지역",12);
+        System.out.println("상태: " + taxi1.getState());
+        System.out.println("누적 요금 = " + taxi1.total_profit);
+        taxi1.changeFuel((short) -20);
+        System.out.println("상태: " + taxi1.getState());
+
     }
 }

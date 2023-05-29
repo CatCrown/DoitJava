@@ -83,20 +83,13 @@ public class Transportation {
             this.state = "운행";
         }
     }
-    
-    public void boarding(int board_passenger){
-        if (this.state.equals("운행") && this.passenger + board_passenger <= MAX_PASSENGER){
-            this.board_passenger = board_passenger;
-            this.passenger += board_passenger;
-            System.out.println("탑승 승객 수 = " + board_passenger);
-            System.out.println("잔여 승객 수 = " + (MAX_PASSENGER - this.passenger));
-        } else if (this.state.equals("차고지행")) {
-            this.passenger = 0;
-            System.out.println("운행 중지 하였습니다. 승객들이 모두 차에서 내렸습니다. ");
-        } else if (this.passenger + board_passenger > MAX_PASSENGER){
-            System.out.println(MAX_PASSENGER + "명까지 탈 수 있습니다. 더 이상 탑승이 어렵습니다. ");
-        }
 
+
+    public int getPassenger() {
+        return passenger;
     }
 
+    public void setPassenger(int passenger) {
+        this.passenger = passenger;
+    }
 }
