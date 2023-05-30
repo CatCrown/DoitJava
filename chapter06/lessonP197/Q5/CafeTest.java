@@ -1,4 +1,4 @@
-package chapter06.lesson197.Q5;
+package chapter06.lessonP197.Q5;
 
 public class CafeTest {
     public static void main(String[] args) {

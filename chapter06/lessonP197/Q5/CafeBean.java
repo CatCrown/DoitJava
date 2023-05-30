@@ -1,4 +1,4 @@
-package chapter06.lesson197.Q5;
+package chapter06.lessonP197.Q5;
 
 public class CafeBean {
     private int beanLattte = 4500;
